@@ -74,7 +74,7 @@ class BgnPanelProvider extends PanelProvider
                 'warning' => Color::Orange,
             ])
             ->viteTheme('resources/css/filament/bgn/theme.css')
-            ->brandName('SPPG-BGN')
+            ->brandName('DapurCempaka')
             // ->brandLogo(asset('images/Sppg.png'))
             ->sidebarCollapsibleOnDesktop()
             // ->topbar(false)
