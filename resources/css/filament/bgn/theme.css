@@ -1,0 +1,142 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+@theme {
+  /* PALET WARNA THEME BGN - EARTH TONE CONCEPT */
+  /* Konsep: Hangat, profesional dengan nuansa krem dan cokelat */
+  /* Aksen kuning keemasan untuk kesan premium */
+  
+  /* === WARNA UTAMA === */
+  --color-main-primary:   rgb(242, 241, 235);  /* Krem Muda - Background utama aplikasi */
+  --color-main-secondary: rgb(204, 197, 181);  /* Abu-abu Kecokelatan - Form dan section */
+  --color-main-black:     rgb(40, 43, 47);     /* Hitam Gelap - Teks utama dan sidebar aktif */
+  --color-main-white:     rgb(255, 255, 255);  /* Putih Murni - Background sidebar dan input */
+  --color-main-accent:    rgb(241, 202, 59);   /* Kuning Keemasan - Highlight dan active state */
+  
+  /* === WARNA FUNGSIONAL === */
+  --color-main-accent-dark:   rgb(200, 160, 30);   /* Kuning Gelap #C8A01E - Variasi gelap accent */
+  --color-main-success:       rgb(134, 159, 112);  /* Hijau Sage #869F70 - Notifikasi sukses */
+  --color-main-danger:        rgb(180, 83, 78);    /* Merah Bata #B4534E - Error dan bahaya */
+  --color-main-warning:       rgb(229, 149, 62);   /* Oranye Hangat #E5953E - Peringatan */
+  --color-main-info:          rgb(137, 162, 178);  /* Biru Abu-abu #89A2B2 - Informasi */
+  
+  /* === WARNA PENDUKUNG === */
+  --color-main-muted:         rgb(160, 155, 142);  /* Abu-abu Redup #A09B8E - Teks sekunder */
+  --color-main-border:        rgb(188, 182, 167);  /* Abu-abu Border #BCB6A7 - Garis pembatas */
+  --color-main-hover:         rgb(230, 228, 220);  /* Krem Hover #E6E4DC - Efek hover */
+  --color-main-card:          rgb(255, 255, 250);  /* Putih Card #FFFFFA - Background card/panel */
+}
+
+.fi-body {
+  @apply bg-main-primary text-main-black;
+}
+
+/* Topbar */
+.fi-topbar {
+  @apply bg-main-primary shadow-none ring-0;
+}
+
+/* Sidebar */
+.fi-sidebar {
+  @apply bg-main-white rounded-2xl ml-2;
+}
+.fi-body-has-topbar .fi-sidebar {
+    height: calc(100vh - 6px);
+}
+ 
+.fi-sidebar-item > .fi-sidebar-item-btn {
+  @apply rounded-2xl hover:bg-main-secondary;
+}
+
+.fi-sidebar-item {
+    &.fi-active {
+    &>.fi-sidebar-item-btn {
+    @apply bg-main-black hover:bg-main-black;
+}
+}
+}
+
+.fi-sidebar-item {
+    &.fi-active {
+    &>.fi-sidebar-item-btn {
+            @apply text-main-accent hover:text-main-accent;
+        }
+    }
+}
+
+.fi-sidebar-item {
+  &.fi-active {
+    &>.fi-sidebar-item-btn {
+      &>.fi-sidebar-item-label {
+        @apply text-main-accent hover:text-main-accent;
+      }
+    }
+  }
+}
+
+.fi-sidebar-item-btn {
+  &>.fi-icon {
+    @apply text-main-black;
+  }
+}
+
+.fi-btn {
+  @apply rounded-2xl text-main-black;
+}
+
+.fi-input-wrp {
+  @apply rounded-2xl bg-main-white shadow-none ring-0;
+}
+
+.fi-ta-ctn {
+  @apply rounded-2xl bg-main-white p-4;
+}
+
+.fi-ta-ctn {
+  & .fi-ta-header-ctn {
+    @apply rounded-2xl bg-main-info;
+  }
+}
+
+ .fi-ta-ctn {
+  & .fi-ta-header-toolbar {
+    @apply border-b-0;
+  }
+}
+
+ .fi-ta-table {
+  &>thead {
+    &>tr {
+      @apply text-main-black bg-main-white;
+    }
+  }
+}
+
+.fi-icon-btn {
+  @apply rounded-2xl bg-main-black text-main-white hover:text-main-accent;
+}
+
+.fi-sc-form {
+  @apply bg-main-secondary rounded-2xl p-4;
+} 
+
+/* .fi-sc-form {
+    @apply text-main-black;
+} */
+.fi-section {
+     @apply bg-main-secondary rounded-4xl;
+}
+
+/*  */
+.fi-global-search{
+   & .fi-global-search-field {
+        @apply bg-main-accent;
+  }
+}
+/* .fi-global-search{
+   & .fi-global-search-ctn {
+        @apply bg-main-accent;
+  }
+} */

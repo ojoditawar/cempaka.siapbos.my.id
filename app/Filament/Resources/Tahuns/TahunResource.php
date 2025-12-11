@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Filament\Resources\Tahuns;
+
+use App\Filament\Resources\Tahuns\Pages\CreateTahun;
+use App\Filament\Resources\Tahuns\Pages\EditTahun;
+use App\Filament\Resources\Tahuns\Pages\ListTahuns;
+use App\Filament\Resources\Tahuns\Schemas\TahunForm;
+use App\Filament\Resources\Tahuns\Tables\TahunsTable;
+use App\Models\Tahun;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
+
+class TahunResource extends Resource
+{
+    protected static ?string $model = Tahun::class;
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Calendar;
+
+    protected static ?string $recordTitleAttribute = 'tahun';
+
+    public static function form(Schema $schema): Schema
+    {
+        return TahunForm::configure($schema);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return TahunsTable::configure($table);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => ListTahuns::route('/'),
+            'create' => CreateTahun::route('/create'),
+            'edit' => EditTahun::route('/{record}/edit'),
+        ];
+    }
+}
