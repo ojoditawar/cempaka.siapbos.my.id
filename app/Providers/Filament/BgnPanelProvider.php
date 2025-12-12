@@ -38,6 +38,7 @@ class BgnPanelProvider extends PanelProvider
             ->id('cb')
             ->path('cb')
             ->login()
+            ->registration()
             ->colors([
                 'primary' => Color::Lime,
             ])
