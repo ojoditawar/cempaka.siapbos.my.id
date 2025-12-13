@@ -8,6 +8,7 @@
     "require": {
         "php": "^8.2",
         "ariaieboy/filament-currency": "^2.0",
+        "diogogpinto/filament-auth-ui-enhancer": "^2.0",
         "filament/filament": "^4.2",
         "icetalker/filament-table-repeater": "^2.0",
         "laravel/fortify": "^1.30",

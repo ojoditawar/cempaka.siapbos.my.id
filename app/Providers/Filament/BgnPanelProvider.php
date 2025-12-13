@@ -28,6 +28,8 @@ use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
 use Filament\Enums\GlobalSearchPosition;
+use DiogoGPinto\AuthUIEnhancer\AuthUIEnhancerPlugin;
+
 
 class BgnPanelProvider extends PanelProvider
 {
@@ -39,6 +41,16 @@ class BgnPanelProvider extends PanelProvider
             ->path('cb')
             ->login()
             ->registration()
+            ->plugins([
+                AuthUIEnhancerPlugin::make()
+                    ->formPanelPosition('left')
+                    ->formPanelWidth('40%')
+                    ->formPanelBackgroundColor(Color::Cyan, '700')
+                    // ->emptyPanelBackgroundImageOpacity('50%')
+                    ->emptyPanelBackgroundImageOpacity('90%')
+                    ->emptyPanelBackgroundImageUrl('https://images.pexels.com/photos/35039304/pexels-photo-35039304.jpeg')
+                // ->emptyPanelBackgroundImageUrl('https://www.pexels.com/photo/scenic-view-of-husavik-harbor-in-iceland-35039304/')
+            ])
             ->colors([
                 'primary' => Color::Lime,
             ])

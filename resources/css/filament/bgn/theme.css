@@ -2,6 +2,7 @@
 
 @source '../../../../app/Filament/**/*';
 @source '../../../../resources/views/filament/**/*';
+@source '../../../../vendor/diogogpinto/filament-auth-ui-enhancer/resources/**/*.blade.php';
 
 @theme {
   /* PALET WARNA THEME BGN - EARTH TONE CONCEPT */
@@ -82,21 +83,21 @@
   }
 }
 
-.fi-btn {
+/* .fi-btn {
   @apply rounded-2xl text-main-black;
-}
+} */
 
 .fi-input-wrp {
-  @apply rounded-2xl bg-main-white shadow-none ring-0;
+  @apply rounded-xl bg-main-black shadow-none ring-0;
 }
 
 .fi-ta-ctn {
-  @apply rounded-2xl bg-main-white p-4;
+  @apply rounded-4xl bg-main-black p-4;
 }
 
 .fi-ta-ctn {
   & .fi-ta-header-ctn {
-    @apply rounded-2xl bg-main-info;
+    @apply rounded-4xl bg-main-info;
   }
 }
 
@@ -135,8 +136,38 @@
         @apply bg-main-accent;
   }
 }
-/* .fi-global-search{
-   & .fi-global-search-ctn {
-        @apply bg-main-accent;
-  }
-} */
+
+/* Target semua label di form */ seting tambahan sendiri
+.fi-fo-field-label-ctn {
+    @apply !text-main-black;
+    color: rgb(40, 43, 47) !important; /* Fallback dengan hex */
+}
+
+/* Alternative dengan selector lebih spesifik */
+.fi-form .fi-fo-field-label-ctn,
+.fi-fo-field-wrp .fi-fo-field-label-ctn {
+    @apply !text-main-black;
+    color: rgb(40, 43, 47) !important;
+}
+
+/* Target semua label di form */
+.fi-fo-field-label,
+.fi-fo-field-label-ctn label,
+.fi-fo-field-label-ctn span {
+    @apply !text-main-black;
+    color: rgb(40, 43, 47) !important;
+}
+
+.fi-logo {
+    @apply flex text-2xl font-bold tracking-tight !text-main-black;
+}
+
+.fi-simple-header-heading {
+    @apply text-main-black;
+}
+
+.fi-simple-header-subheading {
+    @apply text-main-black;
+}
+
+
