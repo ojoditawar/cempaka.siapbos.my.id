@@ -1,29 +1,29 @@
 <?php
 
-namespace App\Filament\Resources\Jenis\Tables;
+namespace App\Filament\Resources\Bahans\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Grouping\Group;
 use Filament\Tables\Table;
 
-
-class JenisTable
+class BahansTable
 {
     public static function configure(Table $table): Table
     {
         return $table
-            ->groups([
-                Group::make('kategori.nama')
-                    ->collapsible(),
-            ])->collapsedGroupsByDefault()
             ->columns([
-                TextColumn::make('kategori.nama')->label('Nama Kategori')
+                TextColumn::make('nama')
+                    ->label('Nama Bahan')
                     ->searchable(),
-                TextColumn::make('nama')->label('Nama Jenis Produk')
-                    ->searchable(),
+                ImageColumn::make('image_url')
+                    ->label('Gambar')
+                    ->circular()
+                    ->size(60)
+                    ->defaultImageUrl(url('/images/placeholder.png'))
+                    ->extraAttributes(['loading' => 'lazy']),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -33,7 +33,6 @@ class JenisTable
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->defaultGroup('kategori.nama')
             ->filters([
                 //
             ])

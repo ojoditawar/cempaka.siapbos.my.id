@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Propinsis\RelationManagers;
 
+use App\Filament\Resources\Kecamatans\KecamatanResource;
 use Filament\Actions\AssociateAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\CreateAction;
@@ -15,6 +16,7 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\HtmlString;
 
 class KabupatenRelationManager extends RelationManager
 {
@@ -37,13 +39,23 @@ class KabupatenRelationManager extends RelationManager
     {
         return $table
             ->recordTitleAttribute('kode')
+            ->recordAction(null)
+            ->recordUrl(null)
             ->heading('Daftar Kabupaten Per Propinsi')
             ->columns([
                 TextColumn::make('kode')->label('Propinsi')
                     ->searchable(),
                 TextColumn::make('kab')->label('Kabupaten')
                     ->searchable(),
-                TextColumn::make('nama')->label('Nama Kabupaten'),
+                // ->html()
+                // ->formatStateUsing(fn(string $state, $record): HtmlString => new HtmlString(
+                //     '<a x-on:click.stop href="' . e(KecamatanResource::getUrl('index') . '?kab=' . $record->kab) . '" class="text-primary-600 hover:underline">' . e($state) . '</a>'
+                // )),
+                TextColumn::make('nama')->label('Nama Kabupaten')
+                    ->html()
+                    ->formatStateUsing(fn(string $state, $record): HtmlString => new HtmlString(
+                        '<a x-on:click.stop href="' . e(KecamatanResource::getUrl('index') . '?kab=' . $record->kab) . '" class="text-primary-600 hover:underline">' . e($state) . '</a>'
+                    )),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -61,7 +73,6 @@ class KabupatenRelationManager extends RelationManager
                 AssociateAction::make(),
             ])
             ->recordActions([
-                EditAction::make(),
                 DissociateAction::make(),
                 DeleteAction::make(),
             ])

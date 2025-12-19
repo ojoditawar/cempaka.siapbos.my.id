@@ -1,0 +1,139 @@
+.fi-body {
+  @apply bg-main-primary text-main-black;
+}
+
+/* Topbar */
+.fi-topbar {
+  @apply bg-main-primary shadow-none ring-0;
+}
+
+/* Sidebar */
+.fi-sidebar {
+  @apply bg-indigo-200 rounded-xl ml-2;
+}
+.fi-body-has-topbar .fi-sidebar {
+    height: calc(100vh - 6px);
+}
+ 
+.fi-sidebar-item > .fi-sidebar-item-btn {
+  @apply rounded-2xl hover:bg-main-secondary;
+}
+
+.fi-sidebar-item {
+    &.fi-active {
+    &>.fi-sidebar-item-btn {
+    @apply bg-main-black hover:bg-main-black;
+}
+}
+}
+
+.fi-sidebar-item {
+    &.fi-active {
+    &>.fi-sidebar-item-btn {
+            @apply text-main-accent hover:text-main-accent;
+        }
+    }
+}
+
+.fi-sidebar-item {
+  &.fi-active {
+    &>.fi-sidebar-item-btn {
+      &>.fi-sidebar-item-label {
+        @apply text-main-accent hover:text-main-accent;
+      }
+    }
+  }
+}
+
+.fi-sidebar-item-btn {
+  &>.fi-icon {
+    @apply text-main-black;
+  }
+}
+
+/* .fi-btn {
+  @apply rounded-2xl text-main-black;
+} */
+
+.fi-input-wrp {
+  @apply rounded-xl bg-main-black shadow-none ring-0;
+}
+
+.fi-ta-ctn {
+  @apply rounded-4xl bg-main-black p-4;
+}
+
+.fi-ta-ctn {
+  & .fi-ta-header-ctn {
+    @apply rounded-4xl bg-main-info;
+  }
+}
+
+ .fi-ta-ctn {
+  & .fi-ta-header-toolbar {
+    @apply border-b-0;
+  }
+}
+
+ .fi-ta-table {
+  &>thead {
+    &>tr {
+      @apply text-main-black bg-main-white;
+    }
+  }
+}
+
+.fi-icon-btn {
+  @apply rounded-2xl bg-main-black text-main-white hover:text-main-accent;
+}
+
+.fi-sc-form {
+  @apply bg-main-secondary rounded-2xl p-4;
+} 
+
+/* .fi-sc-form {
+    @apply text-main-black;
+} */
+.fi-section {
+     @apply bg-indigo-200 rounded-4xl;
+}
+
+/*  */
+.fi-global-search{
+   & .fi-global-search-field {
+        @apply bg-indigo-200;
+  }
+}
+
+/* Target semua label di form */ seting tambahan sendiri
+.fi-fo-field-label-ctn {
+    @apply !text-main-black;
+    color: rgb(40, 43, 47) !important; /* Fallback dengan hex */
+}
+
+/* Alternative dengan selector lebih spesifik */
+.fi-form .fi-fo-field-label-ctn,
+.fi-fo-field-wrp .fi-fo-field-label-ctn {
+    @apply !text-main-black;
+    color: rgb(40, 43, 47) !important;
+}
+
+/* Target semua label di form */
+.fi-fo-field-label,
+.fi-fo-field-label-ctn label,
+.fi-fo-field-label-ctn span {
+    @apply !text-main-black;
+    color: rgb(40, 43, 47) !important;
+}
+
+.fi-logo {
+    @apply flex text-2xl font-bold tracking-tight !text-main-black;
+}
+
+.fi-simple-header-heading {
+    @apply text-main-black;
+}
+
+.fi-simple-header-subheading {
+    @apply text-main-black;
+}

@@ -8,6 +8,8 @@ class Provinsi extends Model
 {
     protected $table = 'provinsis';
     protected $primaryKey = 'kode';
+    protected $keyType = 'string';
+    public $incrementing = false;
 
     protected $fillable = [
         'kode',

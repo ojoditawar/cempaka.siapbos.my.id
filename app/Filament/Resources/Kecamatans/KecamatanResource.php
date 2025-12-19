@@ -24,6 +24,11 @@ class KecamatanResource extends Resource
     protected static ?string $recordTitleAttribute = 'kec';
     protected static ?string $navigationLabel = 'Data Kecamatan';
 
+    protected static string|\UnitEnum|null $navigationGroup = 'Referensi';
+
+    protected static ?int $navigationSort = 2;
+
+
     public static function form(Schema $schema): Schema
     {
         return KecamatanForm::configure($schema);

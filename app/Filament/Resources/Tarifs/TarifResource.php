@@ -19,6 +19,7 @@ class TarifResource extends Resource
     protected static ?string $model = Tarif::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static bool $shouldRegisterNavigation = false;
 
     protected static ?string $recordTitleAttribute = 'kode';
     protected static ?string $navigationLabel = 'Tarif Kebutuhan';

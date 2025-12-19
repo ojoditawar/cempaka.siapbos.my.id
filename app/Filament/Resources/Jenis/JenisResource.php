@@ -18,7 +18,11 @@ class JenisResource extends Resource
 {
     protected static ?string $model = Jenis::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    // Icon navigasi utama (misalnya untuk resource atau page utama)
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::ArrowSmallUp;
+
+    protected static ?string $navigationParentItem = 'Kategoris';
+    protected static ?int $navigationSort = 1;
 
     protected static ?string $recordTitleAttribute = 'id';
 

@@ -1,29 +1,32 @@
 <?php
 
-namespace App\Filament\Resources\Jenis\Tables;
+namespace App\Filament\Resources\Menus\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Grouping\Group;
 use Filament\Tables\Table;
 
-
-class JenisTable
+class MenusTable
 {
     public static function configure(Table $table): Table
     {
         return $table
-            ->groups([
-                Group::make('kategori.nama')
-                    ->collapsible(),
-            ])->collapsedGroupsByDefault()
             ->columns([
-                TextColumn::make('kategori.nama')->label('Nama Kategori')
+                TextColumn::make('kategori.nama')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('nama')
                     ->searchable(),
-                TextColumn::make('nama')->label('Nama Jenis Produk')
-                    ->searchable(),
+                TextColumn::make('harga')
+                    ->numeric()
+                    ->sortable(),
+                ImageColumn::make('image'),
+                IconColumn::make('is_available')
+                    ->boolean(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -33,7 +36,6 @@ class JenisTable
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->defaultGroup('kategori.nama')
             ->filters([
                 //
             ])

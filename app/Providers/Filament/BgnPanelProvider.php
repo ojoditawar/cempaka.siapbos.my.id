@@ -2,7 +2,10 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Resources\Bahans\BahanResource;
 use App\Filament\Resources\Jenis\JenisResource;
+use App\Filament\Resources\Kabupatens\KabupatenResource;
+use App\Filament\Resources\Kategoris\KategoriResource;
 use App\Filament\Resources\Kecamatans\KecamatanResource;
 use App\Filament\Resources\Propinsis\PropinsiResource;
 use App\Filament\Resources\Tahuns\TahunResource;
@@ -87,43 +90,46 @@ class BgnPanelProvider extends PanelProvider
                 'warning' => Color::Orange,
             ])
             ->viteTheme('resources/css/filament/bgn/theme.css')
-            ->brandName('DapurCempaka')
+            ->brandName('Dapur Cempaka')
             // ->brandLogo(asset('images/Sppg.png'))
             ->sidebarCollapsibleOnDesktop()
             // ->topbar(false)
-            ->globalSearch(position: GlobalSearchPosition::Sidebar)
-            ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
-                return $builder
-                    ->items([
-                        NavigationItem::make('Dashboard')
-                            ->icon('heroicon-o-home')
-                            // ->isActiveWhen(fn(): bool => original_request()->routeIs('filament.admin.pages.dashboard'))
-                            ->url(fn(): string => Dashboard::getUrl()),
-                    ])
-                    ->groups([
-                        NavigationGroup::make('Modul Admin')
-                            ->collapsed()
-                            ->items([
-                                // Urutan: Tahun dulu (setting dasar), lalu User
-                                ...TahunResource::getNavigationItems(),
-                                ...PropinsiResource::getNavigationItems(),
-                                // ...KabupatenResource::getNavigationItems(),
-                                ...KecamatanResource::getNavigationItems(),
-                                ...JenisResource::getNavigationItems(),
-                                ...TarifResource::getNavigationItems(),
+            ->globalSearch(position: GlobalSearchPosition::Sidebar);
+        // ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
+        //     return $builder
+        //         ->items([
+        //             NavigationItem::make('Dashboard')
+        //                 ->icon('heroicon-o-home')
+        //                 // ->isActiveWhen(fn(): bool => original_request()->routeIs('filament.admin.pages.dashboard'))
+        //                 ->url(fn(): string => Dashboard::getUrl()),
+        //         ]);
+        // ->groups([
+        //     NavigationGroup::make('Modul Admin')
+        //         ->collapsed()
+        //         ->items([
+        //             // Urutan: Tahun dulu (setting dasar), lalu User
+        //             // ...TahunResource::getNavigationItems(),
+        //             ...PropinsiResource::getNavigationItems(),
+        //             ...KabupatenResource::getNavigationItems(),
+        //             ...KecamatanResource::getNavigationItems(),
+        //             // ...DesaResource::getNavigationItems(),
+        //             ...KategoriResource::getNavigationItems(),
+        //             // ...JenisResource::getNavigationItems(),
+        //             ...BahanResource::getNavigationItems(),
+        //             // ...TarifResource::getNavigationItems(),
 
-                            ]),
-                        NavigationGroup::make('Modul Yayasan')
-                            ->label('Modul Yayasan')
-                            ->items([
-                                ...YayasanResource::getNavigationItems(),
-                            ]),
-                        NavigationGroup::make('Management Website')
-                            ->items([
-                                // ...QnaSectionResource::getNavigationItems(),
-                                // ...TermsConditionResource::getNavigationItems(),
-                            ]),
-                    ]);
-            });
+        //         ]),
+        //     NavigationGroup::make('Modul Yayasan')
+        //         ->label('Modul Yayasan')
+        //         ->items([
+        //             ...YayasanResource::getNavigationItems(),
+        //         ]),
+        //     NavigationGroup::make('Management Website')
+        //         ->items([
+        //             // ...QnaSectionResource::getNavigationItems(),
+        //             // ...TermsConditionResource::getNavigationItems(),
+        //         ]),
+        // ]);
+        // });
     }
 }
